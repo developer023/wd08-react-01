@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+## Install App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`npm install`  
+`npm run dev`
 
-## Available Scripts
+## Main Libraries
 
-In the project directory, you can run:
+- [redux toolkit](https://redux-toolkit.js.org/) - state manager
+- [redux-saga](https://redux-saga.js.org/) - side effect manager
+- [react-hook-form](https://react-hook-form.com/) - processing and validating form
+- [yup](https://github.com/jquense/yup) - schema builder for runtime value parsing and validation form
+- [react-input-mask](https://github.com/sanniassin/react-input-mask) - input masking component
+- [react-dropzone](https://react-dropzone.js.org/) - hook to create a drag'n'drop zone
+- [react-datepicker](https://reactdatepicker.com/) - datepicker & timepicker component
+- [react-leaflet](https://react-leaflet.js.org/) - react components for Leaflet maps
+- [styled-components](https://styled-components.com/) - styles
 
-### `npm start`
+## Architecture
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **assets**
+  - fonts
+  - images
+- **components** (**Components form modules.** This folder for components like a button, input, link and etc.)
+  - ExampleComponent
+    - ExampleComponent.tsx - main file
+    - styles.ts - for styled-components
+    - types.ts - for types
+- **constants** (app's general constants)
+- **containers** (**Containers form pages.** This folder for components like a form, header, footer and etc.)
+  - ExampleContainer
+    - ExampleContainer.tsx - main file
+    - styles.ts - for styled-components
+    - types.ts - for types
+    - data.ts - for auxiliary functions
+- **pages** (**Pages contain containers which in turn contain components**)
+  - ExamplePage
+    - ExamplePage.tsx - main file
+    - styles.ts - for styled-components
+- **redux**
+  - module
+    - slice.ts - actions and reducer
+    - saga.ts
+    - selectors.ts
+- **requests** - contains requests and interceptors
+- **routes**
+- **store**
+- **styles** - contains design tokents
+  - breakpoints
+  - colors
+  - globalStyles
+  - typography
+- **utils** - contains support functions for example hooks and other

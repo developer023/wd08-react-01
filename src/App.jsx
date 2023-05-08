@@ -1,17 +1,10 @@
-import { Button } from "./components/Button/Button";
+import { Main } from "./pages/Main/Main";
 
 function App() {
-  const onClickHandler = () => {
-    console.log("Hello World!");
-  };
-
   return (
-    <div className="App">
-      <Button onClick={onClickHandler}>Hello</Button>
-      <Button>World</Button>
-      <Button>qweryljnkljvscn</Button>
-      Hello World!
-    </div>
+    <>
+      <Main />
+    </>
   );
 }
 
