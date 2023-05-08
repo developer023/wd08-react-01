@@ -5,6 +5,7 @@
 
 ## Main Libraries
 
+- [node-sass](https://github.com/sass/node-sass) - node-sass
 - [redux toolkit](https://redux-toolkit.js.org/) - state manager
 - [redux-saga](https://redux-saga.js.org/) - side effect manager
 - [react-hook-form](https://react-hook-form.com/) - processing and validating form
