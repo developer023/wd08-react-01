@@ -1,52 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import pagesRoutes from "./pagesRoutes";
-
-import { Header } from "../containers/Header/Header";
-import { Footer } from "../containers/Footer/Footer";
-import { Main } from "../pages/Main/Main";
-import { About } from "../pages/About/About";
-import { Contacts } from "../pages/Contacts/Contacts";
-import { SignUp } from "../pages/SignUp/SignUp";
+import { getRouterElement } from "./helper";
 
 export const router = createBrowserRouter([
   {
     path: pagesRoutes.MAIN,
-    element: (
-      <>
-        <Header />
-        <Main />
-        <Footer />
-      </>
-    ),
+    element: getRouterElement(pagesRoutes.MAIN),
   },
   {
     path: pagesRoutes.ABOUT,
-    element: (
-      <>
-        <Header />
-        <About />
-        <Footer />
-      </>
-    ),
+    element: getRouterElement(pagesRoutes.ABOUT),
   },
   {
     path: pagesRoutes.CONTACTS,
-    element: (
-      <>
-        <Header />
-        <Contacts />
-        <Footer />
-      </>
-    ),
+    element: getRouterElement(pagesRoutes.CONTACTS),
   },
   {
     path: pagesRoutes.SIGN_UP,
-    element: (
-      <>
-        <Header />
-        <SignUp />
-        <Footer />
-      </>
-    ),
+    element: getRouterElement(pagesRoutes.SIGN_UP),
   },
 ]);
