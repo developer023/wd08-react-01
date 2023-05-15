@@ -3,6 +3,7 @@ import styles from "./Button.module.scss";
 export const Button = (props) => {
   return (
     <button
+      id={props.id}
       className={`
       ${styles.default} 
       ${styles[props.size]} 

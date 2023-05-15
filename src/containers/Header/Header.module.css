@@ -1,0 +1,17 @@
+header {
+  width: 100%;
+  height: 60px;
+  border-bottom: 3px solid #e11dff;
+}
+
+.active {
+  border-bottom: 4px solid #e11dff !important;
+}
+
+.link {
+  color: #070707;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0 20px;
+  height: 100%;
+}

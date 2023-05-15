@@ -15,10 +15,15 @@ export const AddInfoForm = (props) => {
   return (
     <form className={styles.form} onSubmit={props.submitForm}>
       <h4>Add Info Form</h4>
-      <InputText placeholder="Title:" onChangeHandler={onChangeTitle} />
+      <InputText
+        placeholder="Title:"
+        onChangeHandler={onChangeTitle}
+        value={props.title}
+      />
       <InputText
         placeholder="Description:"
         onChangeHandler={onChangeDescription}
+        value={props.description}
       />
 
       <Button type="submit">Submit</Button>
