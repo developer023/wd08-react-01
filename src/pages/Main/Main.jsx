@@ -1,27 +1,28 @@
 import { useState } from "react";
-import { AddUserForm } from "../../containers/AddUserForm/AddUserForm";
-import { Footer } from "../../containers/Footer/Footer";
+import { AddInfoForm } from "../../containers/AddInfoForm/AddInfoForm";
 
 export const Main = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-  const submitUserHandler = (event) => {
+  const submitFormHandler = (event) => {
     event.preventDefault();
-    console.log("USER:", name, age);
+    const data = {
+      title,
+      description,
+    };
+
+    console.log("DATA: ", data);
   };
 
   return (
     <>
-      <div>
-        <h1>Main Page</h1>
-        <AddUserForm
-          setUserName={setName}
-          setUserAge={setAge}
-          submitUser={submitUserHandler}
-        />
-      </div>
-      <Footer />
+      <h1>Main Page</h1>
+      <AddInfoForm
+        setTitle={setTitle}
+        setDescription={setDescription}
+        submitForm={submitFormHandler}
+      />
     </>
   );
 };
