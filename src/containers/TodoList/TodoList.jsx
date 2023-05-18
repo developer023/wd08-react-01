@@ -14,7 +14,9 @@ export const TodoList = (props) => {
           id={item.id}
           title={item.title}
           description={item.description}
+          setIsOpenModal={props.setIsOpenModal}
           deleteItemHandler={props.deleteItemHandler}
+          editItemHandler={props.editItemHandler}
         />
       ))}
     </ul>
