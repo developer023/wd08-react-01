@@ -1,13 +1,9 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../context/user/userContext";
-
+import { SignUpForm } from "../../containers/SignUpForm/SignUpForm";
 export const SignUp = () => {
-  // const user = useContext(UserContext);
-  const { user, setUser } = useContext(UserContext);
-
   return (
     <>
       <h1>SignUp Page</h1>
+      <SignUpForm />
     </>
   );
 };
