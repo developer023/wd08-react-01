@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Button } from "../../components/Button/Button";
 import { InputText } from "../../components/InputText/InputText";
 
@@ -29,6 +30,14 @@ export const ModalWindow = ({
   const onSubmitHandler = (event) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    console.log("ModalWindow mount");
+
+    return () => {
+      console.log("ModalWindow unmount");
+    };
+  }, []);
 
   return (
     <div className={styles.wrapper}>
