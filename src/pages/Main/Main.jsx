@@ -2,8 +2,10 @@ import { useContext, useState, useEffect } from "react";
 import { AddInfoForm } from "../../containers/AddInfoForm/AddInfoForm";
 import { TodoList } from "../../containers/TodoList/TodoList";
 import { ModalWindow } from "../../containers/ModalWindow/ModalWindow";
-
+import { ButtonTwo } from "../../components/ButtonTwo/ButtonTwo";
 import { UserContext } from "../../context/user/userContext";
+
+import Button from "@mui/material/Button";
 
 export const Main = () => {
   const user = useContext(UserContext);
@@ -58,6 +60,21 @@ export const Main = () => {
 
   return (
     <>
+      <ButtonTwo size="small">small Button Two</ButtonTwo>
+      <ButtonTwo size="default">default Button Two</ButtonTwo>
+      <ButtonTwo size="large">large Button Two</ButtonTwo>
+
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
+
+      <Button variant="contained" color="success">
+        Success
+      </Button>
+      <Button variant="outlined" color="error">
+        Error
+      </Button>
+
       <h1>Main Page</h1>
       <AddInfoForm
         title={title}
