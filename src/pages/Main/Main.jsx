@@ -1,12 +1,20 @@
-import { useContext, useState, useEffect } from "react";
+import { useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+// import { countSelector } from "redux/counter/selectors";
+import { counterActions } from "redux/counter/slice";
+
 import { AddInfoForm, TodoList, ModalWindow } from "containers";
 import { ButtonTwo } from "../../components/ButtonTwo/ButtonTwo";
-import { UserContext } from "../../context/user/userContext";
+// import { UserContext } from "../../context/user/userContext";
 
 import Button from "@mui/material/Button";
 
 export const Main = () => {
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
+  const count = useSelector((state) => state.counter.count);
+  // const count = useSelector(countSelector);
+  const dispatch = useDispatch();
 
   const [data, setData] = useState([]);
   const [title, setTitle] = useState("");
@@ -56,6 +64,14 @@ export const Main = () => {
     setModalDescription("");
   };
 
+  const incrementHandler = () => {
+    dispatch(counterActions.increment());
+  };
+
+  const decrementHandler = () => {
+    dispatch(counterActions.decrement());
+  };
+
   return (
     <>
       <ButtonTwo size="small">small Button Two</ButtonTwo>
@@ -98,7 +114,23 @@ export const Main = () => {
           setIsOpenModal={setIsOpenModal}
         />
       )}
-      {/* { false && true } */}
+      <h1 style={{ textAlign: "center" }}>{count}</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          width: "400px",
+          margin: "0 auto",
+        }}
+      >
+        <ButtonTwo size="small" onClick={incrementHandler}>
+          Increment +1
+        </ButtonTwo>
+        <ButtonTwo size="small" onClick={decrementHandler}>
+          Decrement -1
+        </ButtonTwo>
+      </div>
       {/* { true && true } */}
     </>
   );

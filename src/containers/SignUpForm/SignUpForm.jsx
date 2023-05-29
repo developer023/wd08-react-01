@@ -1,21 +1,24 @@
-import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useContext } from "react";
+// import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../components/Button/Button";
 import { InputText } from "../../components/InputText/InputText";
 import styles from "./SignUpForm.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { booksActions } from "redux/books/slice";
 
 import { schema } from "./data";
-import pagesRoutes from "../../routes/pagesRoutes";
-import { getBooks, updateBook } from "../../requests/booksService";
+// import pagesRoutes from "../../routes/pagesRoutes";
+import { getBooks } from "../../requests/booksService";
 import { ErrorContext } from "../../context/error/errorContext";
 
 export const SignUpForm = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.books);
   // const [error, setError] = useState(null);
   const { error, setError } = useContext(ErrorContext);
-  const [data, setData] = useState(null);
   const {
     register,
     handleSubmit,
@@ -23,7 +26,7 @@ export const SignUpForm = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitHandler = (data) => {
-    updateBook(data);
+    // updateBook(data);
   };
 
   const getBooksHandler = async () => {
@@ -42,17 +45,19 @@ export const SignUpForm = () => {
     const response = await getBooks(setError);
     if (response) {
       const books = response.books;
-      setData(books);
+      // setData(books);
+
+      dispatch(booksActions.setBooks(books));
     }
   };
 
   useEffect(() => {
-    if (!data) {
+    if (!books) {
       getBooksUseEffect();
     }
-  }, [data]);
+  }, [books, dispatch, getBooksUseEffect]);
 
-  console.log("data: ", data);
+  console.log("books: ", books);
 
   // 1 монтирование - при загрузке компоненты
   // 2 обновление - при изменении любой зависимости
@@ -60,11 +65,11 @@ export const SignUpForm = () => {
   return (
     <>
       <Button onClickHandler={getBooksHandler}>Get Books</Button>
-      {!data && <div>Loading...</div>}
+      {!books && <div>Loading...</div>}
 
-      {data && (
+      {books && (
         <ul>
-          {data.map((book) => (
+          {books.map((book) => (
             <li key={book.isbn13}>{book.title}</li>
           ))}
         </ul>
