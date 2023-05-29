@@ -1,4 +1,4 @@
-import { SignUpForm } from "../../containers/SignUpForm/SignUpForm";
+import { SignUpForm } from "containers";
 export const SignUp = () => {
   return (
     <>
