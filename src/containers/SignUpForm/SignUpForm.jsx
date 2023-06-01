@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,18 +7,11 @@ import { InputText } from "../../components/InputText/InputText";
 import styles from "./SignUpForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { booksActions } from "redux/books/slice";
-
 import { schema } from "./data";
-// import pagesRoutes from "../../routes/pagesRoutes";
-import { getBooks } from "../../requests/booksService";
-import { ErrorContext } from "../../context/error/errorContext";
 
 export const SignUpForm = () => {
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.books);
-  // const [error, setError] = useState(null);
-  const { error, setError } = useContext(ErrorContext);
+  const { loading, error, books } = useSelector((state) => state.books);
   const {
     register,
     handleSubmit,
@@ -30,42 +23,29 @@ export const SignUpForm = () => {
   };
 
   const getBooksHandler = async () => {
-    const response = await getBooks(); // error
-    if (response) {
-      const books = response.books;
-
-      console.log("Books: ", books);
-      // navigate(pagesRoutes.MAIN);
-    } else {
-      setError("Sign Up Error");
-    }
-  };
-
-  const getBooksUseEffect = async () => {
-    const response = await getBooks(setError);
-    if (response) {
-      const books = response.books;
-      // setData(books);
-
-      dispatch(booksActions.setBooks(books));
-    }
+    dispatch(booksActions.getBooksThunk());
   };
 
   useEffect(() => {
-    if (!books) {
-      getBooksUseEffect();
+    if (!books && !error) {
+      dispatch(booksActions.getBooksThunk());
     }
-  }, [books, dispatch, getBooksUseEffect]);
+  }, [dispatch, books, error]);
 
+  console.log("loading: ", loading);
+  console.log("error: ", error);
   console.log("books: ", books);
 
-  // 1 монтирование - при загрузке компоненты
-  // 2 обновление - при изменении любой зависимости
+  useEffect(() => {
+    return () => {
+      dispatch(booksActions.setDefaultError());
+    };
+  }, [dispatch]);
 
   return (
     <>
       <Button onClickHandler={getBooksHandler}>Get Books</Button>
-      {!books && <div>Loading...</div>}
+      {loading && <div>Loading...</div>}
 
       {books && (
         <ul>
@@ -75,7 +55,7 @@ export const SignUpForm = () => {
         </ul>
       )}
 
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <div className={styles.error}>{error.message}</div>}
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
         <h4>SignUp Form</h4>
