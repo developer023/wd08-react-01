@@ -1,14 +1,23 @@
 import { NavLink, useLocation } from "react-router-dom";
 import pagesRoutes from "../../routes/pagesRoutes";
 import styles from "./Header.module.css";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
-  // const location = useLocation();
   const { pathname } = useLocation();
+  const { email, firstname } = useSelector((state) => state.user);
 
   return (
     <header>
-      <h3>Header</h3>
+      {!email && <h3>Header</h3>}
+
+      {email && firstname && (
+        <>
+          <h3>{firstname}</h3>
+          <h3>{email}</h3>
+        </>
+      )}
+
       <nav>
         <NavLink
           to={pagesRoutes.MAIN}
@@ -49,6 +58,16 @@ export const Header = () => {
           }
         >
           Contacts
+        </NavLink>
+        <NavLink
+          to={pagesRoutes.REGISTRATION}
+          className={
+            pagesRoutes.REGISTRATION === pathname
+              ? `${styles.link} ${styles.active}`
+              : styles.link
+          }
+        >
+          Registration
         </NavLink>
       </nav>
     </header>

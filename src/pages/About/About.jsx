@@ -6,7 +6,6 @@ export const About = () => {
   const count = useSelector((state) => state.counter.count);
   const books = useSelector((state) => state.books.books);
 
-  console.log(books);
   return (
     <>
       {!books && <div>NULL</div>}

@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "email": "rostislav.radionov018@gmail.com",
+      "password": "$2a$10$nuTHMO4heGt8DESE1faG3ORwR45ZaPyf.wDygJK8.g/lagNONigX6",
+      "firstname": "Rost",
+      "id": 1
+    },
+    {
+      "email": "rostislav.radionsdsdov018@gmail.com",
+      "password": "$2a$10$k5QGUYE5Wx0SMQce2W6EXuiR3IYjvZcYKxeOfqhmb75wpKjybKLEe",
+      "firstname": "Rostwqe",
+      "id": 2
+    },
+    {
+      "email": "rostislav.raddfionov018@gmail.com",
+      "password": "$2a$10$Nv6CgOIVolPkoIIuPTbIkual.4O0cBC5z/ZOa.m5nJ3wPO0CbG0YS",
+      "firstname": "useroneasdasd",
+      "id": 3
+    },
+    {
+      "email": "rostislav.radio2323nov018@gmail.com",
+      "password": "$2a$10$FlFo44boPF13k3ock7D3quTP6B18r9ifgCuvrxl2BjUPaGqTfn5ii",
+      "firstname": "Rostwqeasdasd",
+      "id": 4
+    }
+  ]
+}

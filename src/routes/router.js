@@ -19,4 +19,8 @@ export const router = createBrowserRouter([
     path: pagesRoutes.SIGN_UP,
     element: getRouterElement(pagesRoutes.SIGN_UP),
   },
+  {
+    path: pagesRoutes.REGISTRATION,
+    element: getRouterElement(pagesRoutes.REGISTRATION),
+  },
 ]);

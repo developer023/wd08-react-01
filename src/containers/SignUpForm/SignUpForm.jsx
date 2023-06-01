@@ -32,10 +32,6 @@ export const SignUpForm = () => {
     }
   }, [dispatch, books, error]);
 
-  console.log("loading: ", loading);
-  console.log("error: ", error);
-  console.log("books: ", books);
-
   useEffect(() => {
     return () => {
       dispatch(booksActions.setDefaultError());
