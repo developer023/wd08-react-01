@@ -23,4 +23,8 @@ export const router = createBrowserRouter([
     path: pagesRoutes.REGISTRATION,
     element: getRouterElement(pagesRoutes.REGISTRATION),
   },
+  {
+    path: pagesRoutes.PAG_EXAMPLE,
+    element: getRouterElement(pagesRoutes.PAG_EXAMPLE),
+  },
 ]);

@@ -11,6 +11,7 @@ export const Button = (props) => {
       `}
       type={props.type}
       onClick={props.onClickHandler}
+      ref={props.ref}
     >
       {props.children}
     </button>

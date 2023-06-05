@@ -69,6 +69,16 @@ export const Header = () => {
         >
           Registration
         </NavLink>
+        <NavLink
+          to={pagesRoutes.PAG_EXAMPLE}
+          className={
+            pagesRoutes.PAG_EXAMPLE === pathname
+              ? `${styles.link} ${styles.active}`
+              : styles.link
+          }
+        >
+          Pag_Example
+        </NavLink>
       </nav>
     </header>
   );

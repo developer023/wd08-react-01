@@ -7,6 +7,7 @@ import { About } from "../pages/About/About";
 import { Contacts } from "../pages/Contacts/Contacts";
 import { SignUp } from "../pages/SignUp/SignUp";
 import { Registration } from "../pages/Registration/Registration";
+import { PagExample } from "../pages/PagExample/PagExample";
 
 export const getRouterElement = (path) => {
   let Page = null;
@@ -23,6 +24,9 @@ export const getRouterElement = (path) => {
       break;
     case pagesRoutes.REGISTRATION:
       Page = <Registration />;
+      break;
+    case pagesRoutes.PAG_EXAMPLE:
+      Page = <PagExample />;
       break;
     default:
       Page = <Main />;
